@@ -20,7 +20,7 @@ process.on("uncaughtException", (error:Error)=>{
 });
 
 process.on("unhandledRejection", (reason:Error)=>{
-    console.log("unhandledRejection")
+    console.log("unhandledRejection", reason)
     server.close(()=>{
         process.exit(1)
     })
