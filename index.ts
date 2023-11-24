@@ -1,4 +1,5 @@
 import { error } from "console";
+import {dbconfig} from "./utils/dbconfig"
 import cors from "cors";
 import express,{Application, Request, Response} from "express";
 import mainApp from "./mainApp";
@@ -11,6 +12,7 @@ app.use(cors());
 mainApp(app)
 
 const server = app.listen(port, ()=>{
+    dbconfig()
     console.log("server up and running")
 });
 
