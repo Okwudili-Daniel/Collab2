@@ -26,8 +26,11 @@ export const createTask = async(req: Request, res:Response)=>{
 
 export const viewTask = async(req: Request, res:Response)=>{
     try {
+
+        const user= await TaskModel.find()
         return res.status(200).json({
-            message:"success in viewing"
+            message:"success in viewing",
+            data: user
         })
     } catch (error) {
         return res.status(404).json({
