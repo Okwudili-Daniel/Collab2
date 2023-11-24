@@ -40,15 +40,15 @@ export const viewTask = async(req: Request, res:Response)=>{
     
 };
 
+
 export const viewOneTask = async(req: Request, res:Response)=>{
     try {
 
-        const { userID} = req.params
+        const {taskID} = req.params;
 
-        const user = await TaskModel.findById({userID})
-
+        const user= await TaskModel.findById({taskID})
         return res.status(200).json({
-            message:"success in viewing one task",
+            message:"success in viewing one",
             data: user
         })
     } catch (error) {
@@ -59,12 +59,13 @@ export const viewOneTask = async(req: Request, res:Response)=>{
     
 };
 
+
 export const updateTask = async(req: Request, res:Response)=>{
     try {
 
-        const { userID} = req.params
+        const { taskID} = req.params
 
-        const user = await TaskModel.findById({userID})
+        const user = await TaskModel.findByIdAndUpdate({taskID})
 
         return res.status(200).json({
             message:"success in viewing one task",
